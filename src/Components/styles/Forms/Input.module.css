@@ -9,15 +9,15 @@
   font-size: 1rem;
   padding: 0.8rem;
   border-radius: 0.4rem;
-  background: #eee;
+  background: var(--neutral-color2);
   transition: 0.2s;
 }
 .input:hover,
 .input:focus {
   outline: none;
-  border-color: #fb1;
+  border-color: var(--main-color);
   background: white;
-  box-shadow: 0 0 0 3px #fea;
+  box-shadow: 0 0 0 3px var(--secondary-color);
 }
 
 .label {
@@ -28,7 +28,7 @@
 }
 
 .error {
-  color: #f31;
+  color: var(--error-color);
   font-size: 0.875rem;
-  margin-top: .25rem;
+  margin-top: 0.25rem;
 }
