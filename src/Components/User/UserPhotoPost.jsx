@@ -4,6 +4,7 @@ import Input from "../Forms/Input";
 import Button from "../Forms/Button";
 import useForm from "../../hooks/useForm";
 import useFetch from "../../hooks/useFetch";
+import { PHOTO_POST } from "../../Api";
 
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -20,11 +21,14 @@ const UserPhotoPost = () => {
     formData.append("peso", peso.value);
     formData.append("idade", idade.value);
 
+    const token = localStorage.getItem("token");
+    const { url, options } = PHOTO_POST(formData, token);
     request(url, options);
   };
 
   const handleImgChange = ({ target }) => {
     setImg({
+      preview: URL.createObjectURL(target.files[0]),
       raw: target.files[0],
     });
   };
@@ -32,12 +36,20 @@ const UserPhotoPost = () => {
   return (
     <section className={`${styles.photoPost} animeLeft`}>
       <form onSubmit={handleSubmit}>
-        <Input label="Nome" type="text" name="nome" />
-        <Input label="Peso" type="text" name="peso" />
-        <Input label="Idade" type="text" name="idade" />
-        <input type="file" name="img" id="img" onChange={handleImgChange} />
+        <Input label="Nome" type="text" name="nome" {...nome} />
+        <Input label="Peso" type="number" name="peso" {...peso} />
+        <Input label="Idade" type="number" name="idade" {...idade} />
+        <input className={styles.file} type="file" name="img" id="img" onChange={handleImgChange} />
         <Button>Enviar</Button>
       </form>
+      <div>
+        {img.preview && (
+          <div
+            className={styles.preview}
+            style={{ backgroundImage: `url('${img.preview}')` }}
+          ></div>
+        )}
+      </div>
     </section>
   );
 };
