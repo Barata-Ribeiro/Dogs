@@ -1,9 +1,29 @@
-import React from 'react'
+import React from "react";
+import FeedPhotosItem from "./FeedPhotosItem";
+import useFetch from "../../Hooks/useFetch";
+import { PHOTOS_GET } from "../../Api";
+import Error from "../Helper/Error";
+import Loading from "../Helper/Loading";
 
 const FeedPhotos = () => {
-  return (
-    <div>FeedPhotos</div>
-  )
-}
+  const { data, loading, error, request } = useFetch();
 
-export default FeedPhotos
+  React.useEffect(() => {
+    const fetchPhotos = async () => {
+      const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 });
+      const { response, json } = await request(url, options);
+      console.log(json);
+    };
+    fetchPhotos();
+  }, [request]);
+
+  if (error) return <Error error={error} />;
+  if (loading) return <Loading />;
+  return (
+    <div>
+      <FeedPhotosItem />
+    </div>
+  );
+};
+
+export default FeedPhotos;
