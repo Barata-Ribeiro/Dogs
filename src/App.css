@@ -72,6 +72,10 @@ button {
   margin: 0 auto;
 }
 
+.mainContainer {
+  margin-top: 4rem;
+}
+
 .error {
   color: var(--error-color);
   margin: 1rem 0;
