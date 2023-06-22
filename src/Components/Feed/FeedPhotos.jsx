@@ -4,6 +4,7 @@ import useFetch from "../../Hooks/useFetch";
 import { PHOTOS_GET } from "../../Api";
 import Error from "../Helper/Error";
 import Loading from "../Helper/Loading";
+import styles from "../styles/FeedPhotos.module.css";
 
 const FeedPhotos = () => {
   const { data, loading, error, request } = useFetch();
@@ -19,11 +20,15 @@ const FeedPhotos = () => {
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;
-  return (
-    <div>
-      <FeedPhotosItem />
-    </div>
-  );
+  if (data) {
+    return (
+      <ul className={`${styles.feed} animeLeft`}>
+        {data.map((photo) => (
+          <FeedPhotosItem key={photo.id} photo={photo} />
+        ))}
+      </ul>
+    );
+  } else return null;
 };
 
 export default FeedPhotos;
