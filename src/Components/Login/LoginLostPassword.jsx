@@ -18,7 +18,6 @@ const LoginLostPassword = () => {
         url: window.location.href.replace("recuperar", "resetar"),
       });
       const { json } = await request(url, options);
-      console.log(json);
     }
   };
 
