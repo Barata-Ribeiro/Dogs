@@ -7,6 +7,7 @@ import LoginResetPassword from "./LoginResetPassword";
 import { UserContext } from "../../UserContext";
 import styles from "../styles/Login.module.css";
 import NotFound from "../NotFound";
+import Head from "../Helper/Head";
 
 const Login = () => {
   const { login } = React.useContext(UserContext);

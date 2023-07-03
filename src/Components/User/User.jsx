@@ -6,12 +6,17 @@ import UserStats from "./UserStats";
 import { Route, Routes } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 import NotFound from "../NotFound";
+import Head from "../Helper/Head";
 
 const User = () => {
   const { data } = React.useContext(UserContext);
 
   return (
     <section className="container">
+      <Head
+        title="Minha Conta"
+        description="Página para você, como usuário, verificar suas informações e fotos postadas."
+      />
       <UserHeader />
       <Routes>
         <Route path="/" element={<Feed user={data.id} />} />
