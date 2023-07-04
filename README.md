@@ -8,6 +8,10 @@ Like Instagram, but purely for dogs, users can create an account, post pictures 
 
 ## 👨‍💻 Demo
 
+[Click here](https://dogs-lake.vercel.app) to see a live demo of the website.
+Default login > user: dog / pw:dog
+Api resets periodically, so don't expect your account or posts to remain...
+
 ![Dogs](./public/screenshot.gif)
 
 ## 🚀 Built With
