@@ -1,11 +1,11 @@
 import React from "react";
-import Input from "../Forms/Input";
-import Button from "../Forms/Button";
-import useForm from "../../Hooks/useForm";
-import { PASSWORD_RESET } from "../../ServerApi";
-import useFetch from "../../Hooks/useFetch";
-import Error from "../Helper/Error";
 import { useNavigate } from "react-router-dom";
+import useFetch from "../../Hooks/useFetch";
+import useForm from "../../Hooks/useForm";
+import { PASSWORD_RESET } from "../../api-connection";
+import Button from "../Forms/Button";
+import Input from "../Forms/Input";
+import Error from "../Helper/Error";
 import Head from "../Helper/Head";
 
 const LoginResetPassword = () => {
