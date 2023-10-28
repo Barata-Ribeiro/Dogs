@@ -1,7 +1,7 @@
 import React from "react";
-import { ReactComponent as Enviar } from "../../assets/enviar.svg";
 import useFetch from "../../Hooks/useFetch";
 import { COMMENT_POST } from "../../ServerApi";
+import Enviar from "../../assets/enviar.svg?react";
 import Error from "../Helper/Error";
 import styles from "../styles/PhotoCommentsForm.module.css";
 

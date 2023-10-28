@@ -1,6 +1,6 @@
 import React from "react";
+import Dogs from "../assets/dogs-footer.svg?react";
 import styles from "./styles/Footer.module.css";
-import { ReactComponent as Dogs } from "../assets/dogs-footer.svg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

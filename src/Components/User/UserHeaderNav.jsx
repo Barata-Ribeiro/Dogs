@@ -1,12 +1,12 @@
 import React from "react";
-import { UserContext } from "../../UserContext";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { ReactComponent as MinhasFotos } from "../../assets/feed.svg";
-import { ReactComponent as Estatisticas } from "../../assets/estatisticas.svg";
-import { ReactComponent as AdicionarFoto } from "../../assets/adicionar.svg";
-import { ReactComponent as Sair } from "../../assets/sair.svg";
-import styles from "../styles/UserHeaderNav.module.css";
 import useMedia from "../../Hooks/useMedia";
+import { UserContext } from "../../UserContext";
+import AdicionarFoto from "../../assets/adicionar.svg?react";
+import Estatisticas from "../../assets/estatisticas.svg?react";
+import MinhasFotos from "../../assets/feed.svg?react";
+import Sair from "../../assets/sair.svg?react";
+import styles from "../styles/UserHeaderNav.module.css";
 
 const UserHeaderNav = () => {
   const { userLogout } = React.useContext(UserContext);
