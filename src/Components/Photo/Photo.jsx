@@ -1,7 +1,7 @@
-import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import useFetch from "../../Hooks/useFetch";
-import { PHOTO_GET } from "../../api-connection";
+import { fetchPhoto } from "../../store/photo";
 import Error from "../Helper/Error";
 import Head from "../Helper/Head";
 import Loading from "../Helper/Loading";
@@ -9,12 +9,12 @@ import PhotoContent from "./PhotoContent";
 
 const Photo = () => {
   const { id } = useParams();
-  const { data, loading, error, request } = useFetch();
+  const { loading, error, data } = useSelector((state) => state.photo);
+  const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    const { url, options } = PHOTO_GET(id);
-    request(url, options);
-  }, [id, request]);
+  useEffect(() => {
+    dispatch(fetchPhoto(id));
+  }, [id, dispatch]);
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;
@@ -25,7 +25,7 @@ const Photo = () => {
           title={data.photo.title}
           description={`Essa é a página da fotografia '${data.photo.title}'.`}
         />
-        <PhotoContent single={true} data={data} />
+        <PhotoContent single={true} />
       </section>
     );
   }
