@@ -18,6 +18,8 @@ Api resets periodically, so don't expect your account or posts to remain...
 
 - [React](https://reactjs.org/)
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [Redux](https://redux.js.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
 - [Vite.js](https://vitejs.dev/)
 - [CSS Modules](https://github.com/css-modules/css-modules)
 - [Victory](https://formidable.com/open-source/victory/)
