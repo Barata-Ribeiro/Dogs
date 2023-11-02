@@ -1,12 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import feed from "./feed";
 import photo from "./photo";
 import token from "./token";
+import ui from "./ui";
 import user from "./user";
-import feed from "./feed";
-
 
 const middleware = (getDefaultMiddleware) => [...getDefaultMiddleware()];
-const reducer = combineReducers({ photo, token, user, feed });
+const reducer = combineReducers({ photo, token, user, feed, ui });
 const store = configureStore({ reducer, middleware });
 
 export default store;
